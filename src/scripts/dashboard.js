@@ -39,7 +39,7 @@
 'use strict';
 
 angular.module('adf')
-  .directive('adfDashboard', function($rootScope, $log, $modal, dashboard, adfTemplatePath){
+  .directive('adfDashboard', [ "$rootScope", "$log", "$modal", "dashboard", "adfTemplatePath", function($rootScope, $log, $modal, dashboard, adfTemplatePath){
 
     function copyWidgets(source, target){
       if ( source.widgets && source.widgets.length > 0 ){
@@ -236,4 +236,4 @@ angular.module('adf')
       },
       templateUrl: adfTemplatePath + 'dashboard.html'
     };
-  });
+  }]);
