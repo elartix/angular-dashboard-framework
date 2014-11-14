@@ -45,6 +45,14 @@ angular.module('adf')
             definition.title = w.title;
           }
 
+          if (!definition.widgetClass){
+            if(w.widgetClass) {
+              definition.widgetClass = w.widgetClass;
+            } else {
+              definition.widgetClass = 'default';
+            }
+          }
+
           // pass edit mode
           $attr.$observe('editMode', function(value){
             $scope.editMode = stringToBoolean(value);
@@ -134,7 +142,8 @@ angular.module('adf')
         definition: '=',
         col: '=column',
         editMode: '@',
-        collapsible: '='
+        collapsible: '=',
+        widgetClass: '='
       },
       compile: function compile($element, $attr, transclude) {
 
